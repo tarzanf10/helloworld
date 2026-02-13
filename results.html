@@ -64,9 +64,11 @@
 
     <script>
         // Retrieve postcode from localStorage
-        const postcode = localStorage.getItem('validPostcode');
+        let postcode = localStorage.getItem('validPostcode');
         
         if (postcode) {
+            // Format postcode with space (e.g., SW1A1AA -> SW1A 1AA)
+            postcode = postcode.slice(0, -3) + ' ' + postcode.slice(-3);
             document.getElementById('postcodeDisplay').textContent = postcode;
         } else {
             // Redirect back to form if no postcode found

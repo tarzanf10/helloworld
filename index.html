@@ -75,20 +75,20 @@
     </div>
 
     <script>
-        // List of approved postcodes
+        // List of approved postcodes (without spaces)
         const approvedPostcodes = [
-            'SW1A 1AA',
-            'SW1A 1AB',
-            'SW1A 2AA',
-            'EC1A 1BB',
-            'EC1A 1BC',
-            'E1 6AN',
-            'W1A 1AA',
-            'W1A 1AB',
-            'NW1A 1AA',
-            'M1 1AA',
-            'B1 1AA',
-            'LS1 1AA'
+            'SW1A1AA',
+            'SW1A1AB',
+            'SW1A2AA',
+            'EC1A1BB',
+            'EC1A1BC',
+            'E16AN',
+            'W1A1AA',
+            'W1A1AB',
+            'NW1A1AA',
+            'M11AA',
+            'B11AA',
+            'LS11AA'
         ];
 
         const form = document.getElementById('postcodeForm');
@@ -98,7 +98,7 @@
         form.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const postcode = postcodeInput.value.trim().toUpperCase();
+            const postcode = postcodeInput.value.trim().toUpperCase().replace(/\s+/g, '');
             errorMsg.textContent = '';
 
             if (approvedPostcodes.includes(postcode)) {
