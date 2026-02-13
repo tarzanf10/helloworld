@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Postcode Results</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .postcode-display {
+            font-size: 48px;
+            color: #27ae60;
+            font-weight: bold;
+            margin: 30px 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+        }
+        .message {
+            color: #555;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+        button {
+            padding: 12px 30px;
+            font-size: 16px;
+            background-color: #667eea;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #764ba2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>✓ Postcode Validated</h1>
+        <p class="message">Your postcode has been accepted:</p>
+        <div class="postcode-display" id="postcodeDisplay">-</div>
+        <button onclick="window.location.href='index.html'">Enter Another Postcode</button>
+    </div>
+
+    <script>
+        // Retrieve postcode from localStorage
+        const postcode = localStorage.getItem('validPostcode');
+        
+        if (postcode) {
+            document.getElementById('postcodeDisplay').textContent = postcode;
+        } else {
+            // Redirect back to form if no postcode found
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>
